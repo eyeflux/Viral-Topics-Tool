@@ -48,7 +48,7 @@ timedelta(days=int(days))).isoformat("T") + "Z"
       }
        
       # Fetch video data
-      response = requests.get(YOUTUBE_SEARCH_URL,  params=search_params)
+      response=requests.get(YOUTUBE_SEARCH_URL,params=search_params)
       data = response.json()
     
       # Check if "items" key exists
