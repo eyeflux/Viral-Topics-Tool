@@ -100,15 +100,15 @@ timedelta(days=int(days))).isoformat("T") + "Z"
            "Subscribers": subs
           })
       # Display results
-      if all_results:
-        st.success(f"Found {len(all_results)} results across all keywords!")
-        for result in all_results:
-          st.markdown(
-            f"**Title:** {result['Title']} \n"
-            f"**Description:** {result['Description']} \n"
-            f"**URL:** [Watch Video]({result['URL']}) \n"
-            f"**Views:** {result['Views']} \n" 
-            f"**Subscribers:** {result['Subscribers']}"
+        if all_results:
+          st.success(f"Found {len(all_results)} results across all keywords!")
+          for result in all_results:
+            st.markdown(
+              f"**Title:** {result['Title']} \n"
+              f"**Description:** {result['Description']} \n"
+              f"**URL:** [Watch Video]({result['URL']}) \n"
+              f"**Views:** {result['Views']} \n" 
+              f"**Subscribers:** {result['Subscribers']}"
         ) 
         st.write("---")
     else: 
