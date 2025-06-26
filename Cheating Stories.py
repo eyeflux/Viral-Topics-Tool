@@ -16,7 +16,7 @@ days = st.number_input("Enter Days to Search (1-30):", min_value=1,
 max_value=30, value=5)
 # List of broader keywords
 keywords = [
-"Affair Relationship Stories", "Reddit Update", "Reddit Relationship
+ "Affair Relationship Stories", "Reddit Update", "Reddit Relationship
 Advice", "Reddit Relationship",
 "Reddit Cheating", "AITA Update", "Open Marriage", "Open Relationship",
 "X BF Caught",
@@ -96,7 +96,7 @@ video_url =
 f"https://www.youtube.com/watch?v={video['id']['videoId']}"
 views = int(stat["statistics"].get("viewCount", 0))
 subs = int(channel["statistics"].get("subscriberCount", 0))
-if subs < 3000: # Only include channels with fewer than 3,000
+if subs < 10000: # Only include channels with fewer than 10,000
 subscribers
 all_results.append({
 "Title": title,
