@@ -48,14 +48,13 @@ timedelta(days=int(days))).isoformat("T") + "Z"
       }
       
       # Fetch video data
-      response  =  requests.get(YOUTUBE_SEARCH_URL,
-params=search_params)
+      response  =  requests.get(YOUTUBE_SEARCH_URL, params=search_params)
       data = response.json()
     
-      # Check if "items" key exists
+     # Check if "items" key exists
       if "items" not in data or not data["items"]:
-         st.warning(f"No videos found for keyword: {keyword}")
-         continue
+       st.warning(f"No videos found for keyword: {keyword}")
+       continue
       videos = data["items"]
       video_ids = [video["id"]["videoId"] for video in videos if "id" in video and "videoId" in video["id"]]
       channel_ids = [video["snippet"]["channelId"] for video in videos if "snippet" in video and "channelId" in video["snippet"]]
