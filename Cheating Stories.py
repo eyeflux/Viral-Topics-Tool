@@ -91,7 +91,7 @@ timedelta(days=int(days))).isoformat("T") + "Z"
          video_url = f"https://www.youtube.com/watch?v={video['id']['videoId']}"
          views = int(stat["statistics"].get("viewCount", 0))
          subs = int(channel["statistics"].get("subscriberCount", 0))
-         if subs < 3000: # Only include channels with fewer than 3,000 subscribers
+         if subs < 500: # Only include channels with fewer than 500 subscribers
            all_results.append({
              "Title": title,
              "Description": description,
