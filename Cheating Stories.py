@@ -16,7 +16,7 @@ days = st.number_input("Enter Days to Search (1-30):", min_value=1, max_value=30
 
 # List of broader keywords
 keywords = [
-"Affair Relationship Stories", "Reddit Update", "Reddit Relationship Advice", "Reddit Relationship",
+ "Affair Relationship Stories", "Reddit Update", "Reddit Relationship Advice", "Reddit Relationship",
 "Reddit Cheating", "AITA Update", "Open Marriage", "Open Relationship", "X BF Caught",
 "Stories Cheat", "X GF Reddit", "AskReddit Surviving Infidelity", "GurlCan Reddit",
 "Cheating Story Actually Happened", "Cheating Story Real", "True Cheating Story",
@@ -36,18 +36,19 @@ timedelta(days=int(days))).isoformat("T") + "Z"
      # Iterate over the list of keywords
      for keyword in keywords:
        st.write(f"Searching for keyword: {keyword}")
+       
        # Define search parameters
        search_params = {
-        "part": "snippet",
-        "q": keyword,
-        "type": "video",
-        "order": "viewCount",
-        "publishedAfter": start_date,
-        "maxResults": 5,
-        "key": API_KEY,
-     }
+         "part": "snippet",
+         "q": keyword,
+         "type": "video",
+         "order": "viewCount",
+         "publishedAfter": start_date,
+         "maxResults": 5,
+         "key": API_KEY,
+       }
       
-     # Fetch video data
+       # Fetch video data
      response=requests.get(YOUTUBE_SEARCH_URL,params=search_params)
      data = response.json()
     
