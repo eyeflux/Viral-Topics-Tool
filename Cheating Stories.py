@@ -110,9 +110,9 @@ timedelta(days=int(days))).isoformat("T") + "Z"
            f"**Views:** {result['Views']} \n" 
            f"**Subscribers:** {result['Subscribers']}"
         ) 
-      st.write("---")
-    else: 
-      st.warning("No results found for channels with fewer than 3,000 subscribers.")
+         st.write("---")
+    else:
+       st.warning("No results found for channels with fewer than 3,000 subscribers.")
     
   except Exception as e: 
     st.error(f"An error occurred: {e}")
