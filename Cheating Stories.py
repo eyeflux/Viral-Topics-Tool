@@ -99,20 +99,20 @@ timedelta(days=int(days))).isoformat("T") + "Z"
            "Views": views,
            "Subscribers": subs
           })
-  # Display results
-  if all_results:
-    st.success(f"Found {len(all_results)} results across all keywords!")
-    for result in all_results:
-      st.markdown(
-        f"**Title:** {result['Title']} \n"
-        f"**Description:** {result['Description']} \n"
-        f"**URL:** [Watch Video]({result['URL']}) \n"
-        f"**Views:** {result['Views']} \n" 
-        f"**Subscribers:** {result['Subscribers']}"
-      ) 
-      st.write("---")
-  else: 
-    st.warning("No results found for channels with fewer than 3,000 subscribers.")
+    # Display results
+    if all_results:
+      st.success(f"Found {len(all_results)} results across all keywords!")
+      for result in all_results:
+        st.markdown(
+          f"**Title:** {result['Title']} \n"
+          f"**Description:** {result['Description']} \n"
+          f"**URL:** [Watch Video]({result['URL']}) \n"
+          f"**Views:** {result['Views']} \n" 
+          f"**Subscribers:** {result['Subscribers']}"
+        ) 
+        st.write("---")
+    else: 
+      st.warning("No results found for channels with fewer than 3,000 subscribers.")
     
-except Exception as e: 
-  st.error(f"An error occurred: {e}")
+  except Exception as e: 
+    st.error(f"An error occurred: {e}")
