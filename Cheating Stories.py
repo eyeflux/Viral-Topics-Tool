@@ -52,7 +52,7 @@ timedelta(days=int(days))).isoformat("T") + "Z"
      data = response.json()
     
      # Check if "items" key exists
-      if "items" not in data or not data["items"]:
+     if "items" not in data or not data["items"]:
        st.warning(f"No videos found for keyword: {keyword}")
        continue
       videos = data["items"]
