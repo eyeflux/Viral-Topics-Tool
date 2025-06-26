@@ -110,7 +110,7 @@ timedelta(days=int(days))).isoformat("T") + "Z"
            f"**Views:** {result['Views']} \n" 
            f"**Subscribers:** {result['Subscribers']}"
         ) 
-        st.write("---")
+      st.write("---")
     else: 
       st.warning("No results found for channels with fewer than 3,000 subscribers.")
     
