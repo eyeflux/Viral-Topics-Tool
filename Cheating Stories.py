@@ -1,19 +1,19 @@
 import streamlit as st
 import requests
 from datetime import datetime, timedelta
+
 # YouTube API Key
-API_KEY = "Enter your API Key here"
-YOUTUBE_SEARCH_URL =
-"https://www.googleapis.com/youtube/v3/search"
-YOUTUBE_VIDEO_URL =
-"https://www.googleapis.com/youtube/v3/videos"
-YOUTUBE_CHANNEL_URL =
-"https://www.googleapis.com/youtube/v3/channels"
+API_KEY = "AIzaSyCLfA_xT8vOhojnM4zdJrd3FLedQ6m4a7k"
+YOUTUBE_SEARCH_URL = "https://www.googleapis.com/youtube/v3/search"
+YOUTUBE_VIDEO_URL = "https://www.googleapis.com/youtube/v3/videos"
+YOUTUBE_CHANNEL_URL = "https://www.googleapis.com/youtube/v3/channels"
+
 # Streamlit App Title
 st.title("YouTube Viral Topics Tool")
+
 # Input Fields
-days = st.number_input("Enter Days to Search (1-30):", min_value=1,
-max_value=30, value=5)
+days = st.number_input("Enter Days to Search (1-30):", min_value=1, max_value=30, value=5)
+
 # List of broader keywords
 keywords = [
  "Affair Relationship Stories", "Reddit Update", "Reddit Relationship Advice", "Reddit Relationship",
@@ -23,6 +23,7 @@ keywords = [
 "Reddit Cheating Story", "R/Surviving Infidelity", "Surviving Infidelity",
 "Reddit Marriage", "Wife Cheated I Can't Forgive", "Reddit AP", "Exposed Wife", "Cheat Exposed"
 ]
+
 # Fetch Data Button
 if st.button("Fetch Data"):
 try:
