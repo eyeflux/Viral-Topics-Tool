@@ -3,7 +3,7 @@ import requests
 from datetime import datetime, timedelta
 
 # YouTube API Key
-API_KEY = "AIzaSyCLfA_xT8vOhojnM4zdJrd3FLedQ6m4a7k"
+API_KEY = "Enter your API Key here"
 YOUTUBE_SEARCH_URL = "https://www.googleapis.com/youtube/v3/search"
 YOUTUBE_VIDEO_URL = "https://www.googleapis.com/youtube/v3/videos"
 YOUTUBE_CHANNEL_URL = "https://www.googleapis.com/youtube/v3/channels"
@@ -16,35 +16,37 @@ days = st.number_input("Enter Days to Search (1-30):", min_value=1, max_value=30
 
 # List of broader keywords
 keywords = [
- "Affair Relationship Stories", "Reddit Update", "Reddit Relationship Advice", "Reddit Relationship",
+"Affair Relationship Stories", "Reddit Update", "Reddit Relationship Advice", "Reddit Relationship",
 "Reddit Cheating", "AITA Update", "Open Marriage", "Open Relationship", "X BF Caught",
 "Stories Cheat", "X GF Reddit", "AskReddit Surviving Infidelity", "GurlCan Reddit",
 "Cheating Story Actually Happened", "Cheating Story Real", "True Cheating Story",
 "Reddit Cheating Story", "R/Surviving Infidelity", "Surviving Infidelity",
-"Reddit Marriage", "Wife Cheated I Can't Forgive", "Reddit AP", "Exposed Wife", "Cheat Exposed"
+"Reddit Marriage", "Wife Cheated I Can't Forgive", "Reddit AP", "Exposed Wife",
+"Cheat Exposed"
 ]
 
 # Fetch Data Button
 if st.button("Fetch Data"):
-try:
-# Calculate date range
-start_date = (datetime.utcnow() -
+  try:
+     # Calculate date range
+     start_date = (datetime.utcnow() -
 timedelta(days=int(days))).isoformat("T") + "Z"
-all_results = []
-# Iterate over the list of keywords
-for keyword in keywords:
-st.write(f"Searching for keyword: {keyword}")
-# Define search parameters
-search_params = {
-"part": "snippet",
-"q": keyword,
-"type": "video",
-"order": "viewCount",
-"publishedAfter": start_date,
-"maxResults": 5,
-"key": API_KEY,
-}
-# Fetch video data
+     all_results = []
+  
+     # Iterate over the list of keywords
+     for keyword in keywords:
+       st.write(f"Searching for keyword: {keyword}")
+       # Define search parameters
+       search_params = {
+        "part": "snippet",
+        "q": keyword,
+        "type": "video",
+        "order": "viewCount",
+        "publishedAfter": start_date,
+        "maxResults": 5,
+        "key": API_KEY,
+      }
+      # Fetch video data
 response = requests.get(YOUTUBE_SEARCH_URL,
 params=search_params)
 data = response.json()
@@ -67,6 +69,7 @@ API_KEY}
 stats_response = requests.get(YOUTUBE_VIDEO_URL,
 params=stats_params)
 stats_data = stats_response.json()
+Made with Xodo PDF Reader and Editor
 if "items" not in stats_data or not stats_data["items"]:
 st.warning(f"Failed to fetch video statistics for keyword:
 {keyword}")
@@ -91,11 +94,12 @@ video_url =
 f"https://www.youtube.com/watch?v={video['id']['videoId']}"
 views = int(stat["statistics"].get("viewCount", 0))
 subs = int(channel["statistics"].get("subscriberCount", 0))
-if subs < 10000: # Only include channels with fewer than 10,000
+if subs < 3000: # Only include channels with fewer than 3,000
 subscribers
 all_results.append({
 "Title": title,
 "Description": description,
+Made with Xodo PDF Reader and Editor
 "URL": video_url,
 "Views": views,
 "Subscribers": subs
@@ -108,12 +112,3 @@ st.markdown(
 f"**Title:** {result['Title']} \n"
 f"**Description:** {result['Description']} \n"
 f"**URL:** [Watch Video]({result['URL']}) \n"
-f"**Views:** {result['Views']} \n"
-f"**Subscribers:** {result['Subscribers']}"
-)
-st.write("---")
-else:
-st.warning("No results found for channels with fewer than 3,000
-subscribers.")
-except Exception as e:
-st.error(f"An error occurred: {e}")
